@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Servicios de soporte técnico informático y diseño de páginas web.">
+  <title>Técnico Informático y Diseño Web | Servicios Profesionales</title>
+  <style>
+    :root {
+      --rosa: #F8C8DC;
+      --rosa-claro: #FFF0F5;
+      --rosa-medio: #F3AFCB;
+      --rosa-fuerte: #C85C8E;
+      --lila: #D8C7F3;
+      --lila-oscuro: #75549A;
+      --azul: #C9E7F2;
+      --menta: #CDE8D0;
+      --crema: #FFF9F2;
+      --ciruela: #4A3045;
+      --texto: #493744;
+      --blanco: #FFFFFF;
+      --borde: #E9C8D9;
+      --sombra: 0 8px 24px rgba(100, 55, 83, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--rosa-claro);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: var(--lila-oscuro); }
+    a:focus-visible, input:focus-visible, select:focus-visible,
+    textarea:focus-visible, button:focus-visible {
+      outline: 3px solid var(--lila-oscuro);
+      outline-offset: 3px;
+    }
+    .hero {
+      padding: 54px 20px 48px;
+      text-align: center;
+      background: linear-gradient(135deg, #F8C8DC 0%, #FFF0F5 48%, #D8C7F3 100%);
+      border-bottom: 5px solid var(--rosa-medio);
+    }
+    .hero h1 {
+      margin: 0 auto 12px;
+      max-width: 1000px;
+      color: var(--ciruela);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      line-height: 1.2;
+    }
+    .hero .subtitle {
+      margin: 0 auto 22px;
+      font-size: 1.15rem;
+      color: #62485D;
+    }
+    .hero img {
+      display: block;
+      width: min(400px, 90%);
+      max-height: 300px;
+      object-fit: cover;
+      margin: 22px auto;
+      border: 5px solid rgba(255,255,255,.8);
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(74,48,69,.18);
+    }
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--rosa-fuerte);
+      color: var(--blanco);
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .button:hover { background: #AD4778; transform: translateY(-2px); }
+    .button.secondary { background: var(--lila-oscuro); }
+    .button.secondary:hover { background: #60427F; }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,240,245,.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--borde);
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-width: 1100px;
+      margin: auto;
+      padding: 12px 16px;
+    }
+    nav a {
+      padding: 8px 13px;
+      border-radius: 999px;
+      color: var(--ciruela);
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav a:hover { background: var(--rosa); }
+
+    main { width: min(1100px, 92%); margin: 32px auto; }
+    .section {
+      margin: 28px 0;
+      overflow: hidden;
+      background: var(--blanco);
+      border: 1px solid var(--borde);
+      border-radius: 22px;
+      box-shadow: var(--sombra);
+    }
+    .section-title {
+      margin: 0;
+      padding: 20px 18px;
+      text-align: center;
+      color: var(--ciruela);
+      background: linear-gradient(90deg, var(--rosa), var(--lila));
+      font-size: clamp(1.35rem, 3vw, 1.9rem);
+    }
+    .section-content { padding: clamp(18px, 4vw, 32px); }
+    .center { text-align: center; }
+    .intro h2 { color: var(--lila-oscuro); }
+    .intro p { font-size: 1.08rem; }
+    .accent { color: var(--rosa-fuerte); font-weight: bold; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .card {
+      padding: 22px;
+      border-radius: 16px;
+      border: 1px solid var(--borde);
+    }
+    .card.tech { background: #F0FAFD; }
+    .card.web { background: #F8F2FF; }
+    .card h3 { margin-top: 0; color: var(--lila-oscuro); }
+    .card ul { padding-left: 22px; margin-bottom: 0; }
+    .card li { margin: 8px 0; }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .benefit {
+      padding: 20px 14px;
+      text-align: center;
+      border-radius: 16px;
+      background: var(--rosa-claro);
+      border: 1px solid var(--borde);
+    }
+    .benefit:nth-child(2) { background: #FFF8E8; }
+    .benefit:nth-child(3) { background: #F5F0FF; }
+    .benefit:nth-child(4) { background: #EFFAF0; }
+    .benefit .emoji { font-size: 2rem; }
+    .benefit h3 { margin: 8px 0; color: var(--ciruela); font-size: 1rem; }
+    .benefit p { margin: 0; font-size: .93rem; }
+
+    .table-wrap { overflow-x: auto; }
+    table.prices { width: 100%; border-collapse: collapse; min-width: 450px; }
+    .prices th, .prices td { padding: 13px 15px; border: 1px solid var(--borde); }
+    .prices th { text-align: left; background: var(--lila); color: var(--ciruela); }
+    .prices td { background: #FFFBFD; }
+    .prices tbody tr:nth-child(even) td { background: #F7F2FC; }
+    .prices td:last-child, .prices th:last-child { text-align: center; }
+    .price { color: var(--rosa-fuerte); font-weight: bold; white-space: nowrap; }
+
+    form { max-width: 760px; margin: 0 auto; }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field.full { grid-column: 1 / -1; }
+    label { font-weight: bold; color: var(--ciruela); }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 13px;
+      border: 1px solid #D8B8CA;
+      border-radius: 10px;
+      background: #FFFCFE;
+      color: var(--texto);
+      font: inherit;
+    }
+    textarea { resize: vertical; }
+    .form-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 18px; }
+    .contact-info {
+      background: linear-gradient(135deg, #F0FAFD, #F8F2FF);
+      padding: 26px;
+      border-radius: 16px;
+      text-align: center;
+    }
+    .contact-info p { margin: 10px 0; overflow-wrap: anywhere; }
+    footer {
+      margin-top: 42px;
+      padding: 28px 18px;
+      text-align: center;
+      background: var(--ciruela);
+      color: var(--rosa-claro);
+    }
+    footer p { margin: 5px 0; }
+    footer .small { color: var(--lila); font-size: .9rem; }
+
+    @media (max-width: 760px) {
+      .cards { grid-template-columns: 1fr; }
+      .benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      nav { gap: 3px; }
+      nav a { padding: 7px 9px; font-size: .92rem; }
+    }
+    @media (max-width: 520px) {
+      .hero { padding: 38px 16px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      .benefits { grid-template-columns: 1fr 1fr; }
+      .section-content { padding: 18px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>TÉCNICO INFORMÁTICO &amp; DISEÑO WEB 💻</h1>
+    <p class="subtitle">Soluciones tecnológicas a tu medida</p>
+    <img src="computadora.jpg.avif" alt="Servicio técnico informático">
+    <a class="button" href="#contacto">🚀 Solicita tu presupuesto gratis</a>
+  </header>
+
+  <div class="nav-wrap">
+    <nav aria-label="Navegación principal">
+      <a href="#servicios">✨ Servicios</a>
+      <a href="#beneficios">⭐ Beneficios</a>
+      <a href="#precios">💰 Precios</a>
+      <a href="#contacto">📞 Contacto</a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="section intro">
+      <div class="section-content center">
+        <h2>¿Necesitas ayuda técnica o una página web?</h2>
+        <p>Ofrezco servicios profesionales de <strong>reparación de computadoras</strong>, <strong>mantenimiento preventivo y correctivo</strong>, así como <strong>creación y diseño de páginas web</strong> modernas y funcionales.</p>
+        <p>💗 Atención personalizada, precios accesibles y garantía en mis trabajos.</p>
+        <a class="button secondary" href="#contacto">Quiero más información</a>
+      </div>
+    </section>
+
+    <section class="section" id="servicios">
+      <h2 class="section-title">✨ Mis servicios</h2>
+      <div class="section-content">
+        <div class="cards">
+          <article class="card tech">
+            <h3>💻 Técnico en informática</h3>
+            <ul>
+              <li>Reparación de computadoras de escritorio y portátiles</li>
+              <li>Eliminación de virus y malware</li>
+              <li>Instalación de sistemas operativos (Windows, Linux)</li>
+              <li>Instalación y configuración de software</li>
+              <li>Mantenimiento preventivo y correctivo</li>
+              <li>Recuperación de datos</li>
+              <li>Actualización de hardware (RAM, discos SSD)</li>
+              <li>Configuración de redes e internet</li>
+              <li>Asesoría técnica personalizada</li>
+            </ul>
+          </article>
+          <article class="card web">
+            <h3>🌐 Creación y diseño web</h3>
+            <ul>
+              <li>Diseño de páginas web responsivas</li>
+              <li>Sitios web para negocios y emprendedores</li>
+              <li>Portafolios personales y profesionales</li>
+              <li>Tiendas online básicas</li>
+              <li>Landing pages para promociones</li>
+              <li>Optimización SEO básica</li>
+              <li>Mantenimiento y actualización de sitios</li>
+              <li>Registro de dominio y hosting</li>
+              <li>Asesoría en presencia digital</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="beneficios">
+      <h2 class="section-title">⭐ ¿Por qué elegirme?</h2>
+      <div class="section-content">
+        <div class="benefits">
+          <article class="benefit">
+            <div class="emoji">⚡</div>
+            <h3>Rapidez</h3>
+            <p>Respuesta en menos de 24 horas</p>
+          </article>
+          <article class="benefit">
+            <div class="emoji">💰</div>
+            <h3>Precios justos</h3>
+            <p>Presupuestos claros y sin sorpresas</p>
+          </article>
+          <article class="benefit">
+            <div class="emoji">🛡️</div>
+            <h3>Garantía</h3>
+            <p>Respaldo en los trabajos realizados</p>
+          </article>
+          <article class="benefit">
+            <div class="emoji">🤝</div>
+            <h3>Trato personal</h3>
+            <p>Atención directa y personalizada</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="precios">
+      <h2 class="section-title">💰 Precios de referencia</h2>
+      <div class="section-content">
+        <div class="table-wrap">
+          <table class="prices">
+            <thead>
+              <tr><th>Servicio</th><th>Precio orientativo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Diagnóstico y presupuesto</td><td class="price">GRATIS</td></tr>
+              <tr><td>Mantenimiento básico de PC</td><td class="price">Desde $30</td></tr>
+              <tr><td>Eliminación de virus y optimización</td><td class="price">Desde $35</td></tr>
+              <tr><td>Instalación de sistema operativo</td><td class="price">Desde $50</td></tr>
+              <tr><td>Página web básica (1-3 secciones)</td><td class="price">Desde $150</td></tr>
+              <tr><td>Página web profesional (hasta 6 secciones)</td><td class="price">Desde $300</td></tr>
+              <tr><td>Tienda online básica</td><td class="price">Desde $500</td></tr>
+              <tr><td>Mantenimiento web mensual</td><td class="price">Desde $50/mes</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="center"><em>Los precios pueden variar según la complejidad del trabajo. Solicita un presupuesto personalizado sin compromiso.</em></p>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <h2 class="section-title">📞 Contacto</h2>
+      <div class="section-content">
+        <p class="center">Rellena el siguiente formulario y me pondré en contacto contigo lo antes posible.</p>
+        <form action="https://formsubmit.co/js3514137@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Nueva consulta desde la página web">
+          <input type="hidden" name="_captcha" value="true">
+          <div class="form-grid">
+            <div class="field">
+              <label for="nombre">Nombre completo</label>
+              <input id="nombre" type="text" name="nombre" maxlength="80" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="email">Correo electrónico</label>
+              <input id="email" type="email" name="email" maxlength="100" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="telefono">Teléfono</label>
+              <input id="telefono" type="tel" name="telefono" maxlength="20" autocomplete="tel">
+            </div>
+            <div class="field">
+              <label for="servicio">Tipo de servicio</label>
+              <select id="servicio" name="servicio">
+                <option value="tecnico">Técnico en informática</option>
+                <option value="web">Creación de página web</option>
+                <option value="ambos">Ambos servicios</option>
+                <option value="otro">Otro (especificar en mensaje)</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="mensaje">Mensaje</label>
+              <textarea id="mensaje" name="mensaje" rows="6" placeholder="Describe tu necesidad o problema..." required></textarea>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="button" type="submit">🚀 Enviar mensaje</button>
+            <button class="button secondary" type="reset">🔄 Limpiar formulario</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">💌 También puedes contactarme directamente</h2>
+      <div class="section-content">
+        <div class="contact-info">
+          <p>📧 <strong>Email:</strong> <a href="mailto:jennimichelle9@gmail.com">jennimichelle9@gmail.com</a></p>
+          <p>📱 <strong>WhatsApp:</strong> <a href="https://wa.me/593962698316" target="_blank" rel="noopener noreferrer">+593 962 698 316</a></p>
+          <p>📍 <strong>Zona de cobertura:</strong> Servicio local y remoto (online)</p>
+          <p>🕒 <strong>Horario de atención:</strong><br>Lunes a viernes de 9:00 a 19:00<br>Sábados de 10:00 a 14:00</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>© 2025 Técnico en Informática &amp; Diseño Web</strong></p>
+    <p>Todos los derechos reservados.</p>
+    <p class="small">Página creada con HTML y CSS.</p>
+  </footer>
+</body>
+</html>
